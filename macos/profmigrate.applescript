@@ -15,18 +15,18 @@ set AddressBook to quoted form of "Library/Application Support/AddressBook/"
 set Stickies to quoted form of "Library/StickiesDatabase"
 
 -- Prompt user to authenticate and display confirmation dialog
-set myUser to text returned of (display dialog Â
-	"Enter your username to authenticate" default answer Â
-	"" buttons {"Continue"} Â
-	default button 1 Â
-	with icon stop Â
+set myUser to text returned of (display dialog Â¬
+	"Enter your username to authenticate" default answer Â¬
+	"" buttons {"Continue"} Â¬
+	default button 1 Â¬
+	with icon stop Â¬
 	)
-set myPass to text returned of (Â
-	display dialog "Enter the password for " & myUser Â
-		default answer Â
-		"" buttons {"Continue"} Â
-		default button 1 Â
-		with icon stop Â
+set myPass to text returned of (Â¬
+	display dialog "Enter the password for " & myUser Â¬
+		default answer Â¬
+		"" buttons {"Continue"} Â¬
+		default button 1 Â¬
+		with icon stop Â¬
 		with hidden answer)
 
 -- Confirmation dialog
