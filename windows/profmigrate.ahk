@@ -5,6 +5,13 @@ V2 - rewritten for use with AutoHotkey to provide a basic GUI
 V1
 */
 
+/* Get admin */
+if not A_IsAdmin
+{
+   Run *RunAs "%A_ScriptFullPath%"  ; Requires v1.0.92.01+
+   ExitApp
+}
+
 MsgBox This script will copy files from the Desktop, Downloads, My Documents, My Pictures, My Videos, My Music, and Favorites folders as well as the application data for Chrome, Firefox, Stickies, and Thunderbird. `n`nWritten by Taylor Jadin (2016)
 FileSelectFolder source,, 6, Select source profile:
 FileSelectFolder destination,, 6, Select destination profile:
@@ -22,7 +29,6 @@ runwait robocopy "%source%\Favorites" "%destination%\Favorites" /s /r:0 /xf "des
 runwait robocopy "%source%\AppData\Roaming\Mozilla\Firefox" "%destination%\AppData\Roaming\Mozilla\Firefox" /mir
 runwait robocopy "%source%\AppData\Roaming\Thunderbird" "%destination%\AppData\Roaming\Thunderbird" /mir
 runwait robocopy "%source%\AppData\Local\Google\Chrome" "%destination%\AppData\Local\Google\Chrome" /mir
-runwait robocopy "%source%\AppData\Roaming"
 
 Complete:
 Msgbox Migration complete.
